@@ -1,0 +1,27 @@
+{% extends 'administrator/base.html' %}
+{% block 'content' %}
+<a href="{% url 'category-create' %}">Create Category</a>
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Created By</th>
+        <th scope="col">Options</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for category in categories %}
+      <tr>
+        <th scope="row">{{category.id}}</th>
+        <td>{{category.name}}</td>
+        <td>{{category.created_by}}</td>
+        <td>
+            <a href="">Update</a>
+            <a href="">Delete</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
